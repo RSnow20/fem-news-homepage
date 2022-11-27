@@ -30,7 +30,13 @@
       </header>
       <main>
         <section class="main-article">
-          <div class="main-article-img"><img src="assets/images/image-web-3-desktop.jpg" alt="Multicolored Building Blocks" /></div>
+          <div class="main-article-img">
+            <picture>
+              <source media="(max-width: 38rem)" srcset="assets/images/image-web-3-mobile.jpg" />
+              <source media="(min-width: 38.0625rem)" srcset="assets/images/image-web-3-desktop.jpg" />
+              <img src="assets/images/image-web-3-mobile.jpg" alt="Multicolored Building Blocks" />
+            </picture>
+          </div>
           <div class="even-columns">
             <h2>The Bright Future of Web 3.0?</h2>
             <div class="main-article-text">

@@ -141,13 +141,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: var(--size-700);
-  padding-bottom: var(--size-500);
+  padding-top: var(--size-400);
+  padding-bottom: var(--size-400);
 }
 
 header .primary-nav {
-  display: flex;
-  gap: var(--size-400);
+  display: none;
 }
 
 header .primary-nav li a {
@@ -159,6 +158,17 @@ header .primary-nav li a:hover {
   color: var(--clr-primary-400);
 }
 
+@media (min-width: 50rem) {
+  header {
+    padding-top: var(--size-700);
+    padding-bottom: var(--size-500);
+  }
+  header .primary-nav {
+    display: flex;
+    gap: var(--size-400);
+  }
+}
+
 /*  ==========
 Main Content Area
 ========== */
@@ -166,10 +176,10 @@ Main Content Area
 main {
   display: grid;
   grid-template-areas:
-    "main-article new-articles"
-    "top-articles top-articles";
-  grid-template-columns: 2.25fr 1fr;
-  gap: var(--size-700) var(--size-300);
+    "main-article"
+    "new-articles"
+    "top-articles";
+  gap: var(--size-300);
 }
 
 .main-article {
@@ -184,12 +194,25 @@ main {
   grid-area: top-articles;
 }
 
+@media (min-width: 50rem) {
+  main {
+    grid-template-areas:
+      "main-article new-articles"
+      "top-articles top-articles";
+    grid-template-columns: 2.25fr 1fr;
+    gap: var(--size-700) var(--size-300);
+  }
+}
 /*  ==========
 Main Article Area
 ========== */
 
 .main-article {
   display: grid;
+}
+
+.main-article picture {
+  width: 100%;
 }
 
 .main-article h2 {
@@ -222,6 +245,16 @@ Main Article Area
 
 .main-article button:hover {
   background-color: var(--clr-neutral-800);
+}
+
+@media (min-width: 50rem) {
+  /* main {
+    grid-template-areas:
+      "main-article new-articles"
+      "top-articles top-articles";
+    grid-template-columns: 2.25fr 1fr;
+    gap: var(--size-700) var(--size-300);
+  } */
 }
 
 /*  ==========
@@ -275,14 +308,17 @@ Top Articles Area
 ========== */
 
 .top-article-list {
-  display: flex;
+  display: grid;
   gap: var(--size-500);
 }
 
 .top-article-list li {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   gap: var(--size-200);
+}
+
+.top-article-list img {
+  height: 125px;
 }
 
 .top-article-text {
@@ -305,6 +341,17 @@ Top Articles Area
   line-height: 1.75;
 }
 
+@media (min-width: 50rem) {
+  .top-article-list {
+    display: flex;
+    gap: var(--size-500);
+  }
+
+  .top-article-list li {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
 /*  ==========
 Footer
 ========== */
@@ -324,7 +371,15 @@ Utility Classes
 
 .even-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   padding-top: var(--size-400);
   gap: var(--size-400);
+}
+
+@media (min-width: 50rem) {
+  .even-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: var(--size-400);
+    gap: var(--size-400);
+  }
 }
